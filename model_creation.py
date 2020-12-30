@@ -2,7 +2,6 @@ import os
 import numpy as np
 import pandas as pd 
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 from tensorflow.keras.layers import (Dense , Dropout ,Flatten ,
                                      MaxPool2D ,Conv2D ,Activation ,
@@ -19,7 +18,6 @@ test_dir = process_dir + "\\test"
 train_dir = process_dir + "\\train"
 validation_dir = process_dir + "\\validation"
 
-to_plot = []
 
 train_data_NORMAL = []
 test_data_NORMAL = []
@@ -41,9 +39,7 @@ for img_path_test1 , img_path_test2 in\
                               color_mode = "grayscale"))
     test_data_NORMAL.append((test_image1))
     test_data_PNEUMONIA.append((test_image2))
-            
-    
-    to_plot.append((test_image1.shape))
+
 
 print()
 index= 0
@@ -75,9 +71,7 @@ for img_path_train in os.listdir(train_dir +"\\PNEUMONIA"):
     print(verbose)
 
 
-#test images size plotted with seaborn
-to_plot= np.array(to_plot)
-sns.jointplot(to_plot[: ,0] , to_plot[: ,1])
+
 
 
 test_data_NORMAL =  np.array(test_data_NORMAL)
